@@ -1,43 +1,53 @@
-import React from 'react'
+import { useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "../styles/global.css"
 
-const Navbar = () => {
-  return (
-    <div className='id'>
-        <div className='overflow'>
-            <div className='overflow-hidden px-5 cursor-pointer lg:bg-white lg:bg-opacity-0 bg-primary bg-opacity-10'>
-                <nav className='flex lg:flex-row items-center container mx-auto py-10 lg:py-1 flex-col-reverse lg:justify-center"'>
-                    <ul className="  lg:inline-flex lg:flex-row xl:w-5/12 lg:w-96 md:w-12/12 w-12/12 flex flex-col  justify-between lg:pt-10 items-start lg:items-center lg:justify-between lg:text-lg text-2xl lg:font-normal font-semibold">
-                        
-                   
-                        <li className='border-b-2 border-primary   hover:font-medium'>
-                            <a href="/">Home</a>
-                        </li>
-                        <li className='hover:font-light'>
-                            <a href='/about'>About Us</a>
-                        </li>
-                        <li className='hover:font-light'>
-                            <a href='/volunteer'>Volunteer</a>
-                        </li>
-                        <li className='hover:font-light'>
-                            <a href='/events'>Events</a>
-                        </li>
-                    </ul>
-                    <figure className='flex justify-between w-full lg:h-0 h-10 px-1 lg:px-2 xl:w-2/12 lg:justify-center items-center'>
-                    <a className='border-none' href='/'>
-                        <img src='' alt='logo' width={100} height={100}/>
+function Navbar() {
+	const navRef = useRef();
+
+	const showNavbar = () => {
+		navRef.current.classList.toggle(
+			"responsive_nav"
+		);
+	};
+
+	return (
+		<header>
+			
+			<nav ref={navRef}>
+				<a href="/#">Home</a>
+				<a href="/#">About Us</a>
+				<a href="/#">Donations</a>
+				<a href="/#">Worship With Us</a>
+				<button
+					className="nav-btn nav-close-btn"
+					onClick={showNavbar}>
+					<FaTimes />
+				</button>
+			</nav>
+            <h3>Daystar</h3>
+			<button
+				className="nav-btn"
+				onClick={showNavbar}>
+				<FaBars />
+			</button>
+           {/* <div className="nav_btn  style={{ display: 'none' }}">
+           <a target='_blank' href=''>
+            <button className='lg:w-36 md:w-28 rounded-md h-12 text-primary font-medium
+             border-primary border-2 font-mono hover:scale-105'>
+                Join Us
+                </button>
                     </a>
-                    <button className='rounded lg:hidden text-white over:text-white active:bg-white outline-none'></button>
-                    </figure>
-                    <div className='w-4/12 md:w-5/12 lg:flex'>
-                        <a target='_blank' href=''>
-                            <button>Join Us</button>
+                    <a href='/support'>
+                            <button className='lg:w-54 md:w-48 border-primary rounded-md h-12 border-2
+                              font-medium text-primary font-mono 
+                            hover:scale-105'>
+                                Support Our Vison
+                                </button>
                         </a>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-  )
+           </div> */}
+		</header>
+	);
 }
 
-export default Navbar
+export default Navbar;
