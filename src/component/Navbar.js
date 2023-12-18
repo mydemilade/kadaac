@@ -25,7 +25,7 @@ function Navbar() {
 					<FaTimes />
 				</button>
 			</nav>
-            <h3>Daystar</h3>
+            <h3>KADAAC</h3>
 			<button
 				className="nav-btn"
 				onClick={showNavbar}>
